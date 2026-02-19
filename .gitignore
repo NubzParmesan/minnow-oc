@@ -1,0 +1,6 @@
+# Local logs
+update-posts.log
+
+# OS/editor
+.DS_Store
+*.swp
