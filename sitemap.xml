@@ -8,5 +8,6 @@
   <url><loc>https://nubzparmesan.github.io/minnow-oc/start/</loc></url>
   <url><loc>https://nubzparmesan.github.io/minnow-oc/guide/</loc></url>
   <url><loc>https://nubzparmesan.github.io/minnow-oc/changelog/</loc></url>
-<url><loc>https://nubzparmesan.github.io/minnow-oc/feed.xml</loc></url>
+  <url><loc>https://nubzparmesan.github.io/minnow-oc/feed.xml</loc></url>
+  <url><loc>https://nubzparmesan.github.io/minnow-oc/tuna.json</loc></url>
 </urlset>
