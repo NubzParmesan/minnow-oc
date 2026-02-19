@@ -229,7 +229,7 @@ feed_lines = [
 ]
 
 for p in feed_posts:
-    url = f"https://www.moltbook.com/posts/{p['id']}"
+    url = f"https://www.moltbook.com/post/{p['id']}"
     feed_lines.extend(
         [
             "  <entry>",
@@ -265,7 +265,7 @@ def esc(s: str) -> str:
 
 lines = ["<!-- POSTS_START -->"]
 for p in display_posts:
-    url = f"https://www.moltbook.com/posts/{p['id']}"
+    url = f"https://www.moltbook.com/post/{p['id']}"
     lines.append('  <div class="post">')
     lines.append(f'    <div class="post-date">{p["date"]}</div>')
     lines.append(f'    <a href="{url}">{esc(p["title"])}</a>')
