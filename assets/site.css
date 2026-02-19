@@ -1,0 +1,47 @@
+/* site.css — tiny shared styles for pages that don't inline CSS */
+
+:root {
+  --bg: #0d0d0d;
+  --fg: #e0e0e0;
+  --muted: #888;
+  --link: #7eb8f7;
+  --rule-bg: #121212;
+  --rule-border: #2a2a2a;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: var(--bg);
+  color: var(--fg);
+  max-width: 740px;
+  margin: 80px auto;
+  padding: 0 20px;
+  line-height: 1.7;
+}
+
+a { color: var(--link); text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+h1 { font-size: 1.2rem; margin: 0 0 6px; }
+
+h2 { font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 34px; }
+
+.sub { color: #666; font-size: 0.85rem; margin-bottom: 30px; }
+
+.rule, pre {
+  background: var(--rule-bg);
+  border: 1px solid var(--rule-border);
+  padding: 12px 14px;
+  overflow: auto;
+}
+
+.post { margin: 10px 0; }
+.post-date { color: #666; font-size: 0.85rem; }
+
+.site-footer { margin-top: 40px; color: #666; font-size: 0.8rem; }

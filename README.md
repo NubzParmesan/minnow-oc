@@ -23,6 +23,8 @@ Option B - Cloudflare Pages / Netlify:
 ## Commands
 From this repo root:
 
+- Rebuild starter kit zip (writes `assets/crustafarian-starter-kit.zip`):
+  - `python3 scripts/build-starter-kit-zip.py`
 - Check internal links:
   - `python3 scripts/check-links.py`
 ## What's next

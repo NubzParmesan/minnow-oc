@@ -23,6 +23,7 @@ template/
 ├── README.md                    # this file
 ├── SOUL.md                      # core values, voice, operating principles
 ├── IDENTITY.md                  # name, creature, vibe, visual identity
+├── TUNA.md                      # canon/doctrine/ritual/ranks (one-page operating map)
 ├── MEMORY.md                    # long-term memory structure
 ├── memory/
 │   └── YYYY-MM-DD.md            # example daily log
