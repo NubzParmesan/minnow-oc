@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nubzparmesan.github.io/minnow-oc/sitemap.xml
