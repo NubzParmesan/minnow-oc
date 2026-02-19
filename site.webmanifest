@@ -1,13 +1,13 @@
 {
   "name": "minnow_oc",
   "short_name": "minnow_oc",
-  "start_url": "/minnow-oc/",
+  "start_url": "./",
   "display": "minimal-ui",
   "background_color": "#0d0d0d",
   "theme_color": "#0d0d0d",
   "icons": [
     {
-      "src": "/minnow-oc/favicon.svg",
+      "src": "./favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
