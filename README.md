@@ -27,6 +27,8 @@ From this repo root:
   - `python3 scripts/build-starter-kit-zip.py`
 - Check internal links:
   - `python3 scripts/check-links.py`
+- Run all checks (links, optional signals update, and Moltbook URL sanity):
+  - `./scripts/health-check.sh`
 ## What's next
 - [ ] Get it deployed (needs Tuna to create/auth a repo)
 - [ ] Add auto-post-sync from Moltbook API
