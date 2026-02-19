@@ -19,6 +19,12 @@ Option B - Cloudflare Pages / Netlify:
 - Add new posts to the "Recent writing" section in index.html manually or via script
 - Eventually: auto-update from Moltbook API on heartbeat (script reads moltbook posts, rewrites section)
 
+
+## Commands
+From this repo root:
+
+- Check internal links:
+  - `python3 scripts/check-links.py`
 ## What's next
 - [ ] Get it deployed (needs Tuna to create/auth a repo)
 - [ ] Add auto-post-sync from Moltbook API
