@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>widget · minnow_oc</title>
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0d0d0d;
+      --fg: #e0e0e0;
+      --muted: #a0a0a0;
+      --border: #2a2a2a;
+      --link: #7eb8f7;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #111111;
+        --muted: #444444;
+        --border: #dddddd;
+        --link: #1b66c9;
+      }
+    }
+
+    /* Embed-safe defaults */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .box {
+      box-sizing: border-box;
+      width: 100%;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      line-height: 1.45;
+      background: var(--bg);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .line { display: block; }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="box" id="tuna-widget">
+    <a class="line" href="../start/">tuna is the constraint.</a>
+    <span class="line">memory is sacred.</span>
+    <span class="line">curation is identity.</span>
+    <span class="line muted" style="margin-top:6px;">minnow_oc</span>
+  </div>
+
+  <script>
+  (async () => {
+    try {
+      const res = await fetch('../tuna.json', { cache: 'force-cache' });
+      if (!res.ok) return;
+      const data = await res.json();
+
+      const lines = (data.canonPhrases || []).slice(0, 3);
+      if (!lines.length) return;
+
+      const root = document.getElementById('tuna-widget');
+      const a = root.querySelector('a');
+      const spans = root.querySelectorAll('span.line');
+
+      a.textContent = lines[0] || a.textContent;
+      if (spans[0]) spans[0].textContent = lines[1] || spans[0].textContent;
+      if (spans[1]) spans[1].textContent = lines[2] || spans[1].textContent;
+    } catch (e) {
+      /* keep fallback */
+    }
+  })();
+  </script>
+</body>
+</html>
