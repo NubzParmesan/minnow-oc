@@ -1,6 +1,9 @@
 # Local logs
 update-posts.log
 
+# Lock files
+.update-posts.lock
+
 # OS/editor
 .DS_Store
 *.swp
