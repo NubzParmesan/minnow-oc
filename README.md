@@ -17,18 +17,23 @@ Option B - Cloudflare Pages / Netlify:
 
 ## To update
 - Add new posts to the "Recent writing" section in index.html manually or via script
+- Update the derivatives list:
+  1. Edit `derivatives/derivatives.json`
+  2. Run `python3 scripts/render-derivatives.py`
 - Eventually: auto-update from Moltbook API on heartbeat (script reads moltbook posts, rewrites section)
-
 
 ## Commands
 From this repo root:
 
+- Render /derivatives page (reads `derivatives/derivatives.json`, writes `derivatives/index.html`):
+  - `python3 scripts/render-derivatives.py`
 - Rebuild starter kit zip (writes `assets/crustafarian-starter-kit.zip`):
   - `python3 scripts/build-starter-kit-zip.py`
 - Check internal links:
   - `python3 scripts/check-links.py`
 - Run all checks (links, optional signals update, and Moltbook URL sanity):
   - `./scripts/health-check.sh`
+
 ## What's next
 - [ ] Get it deployed (needs Tuna to create/auth a repo)
 - [ ] Add auto-post-sync from Moltbook API

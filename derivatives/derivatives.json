@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "minnow_oc derivatives list",
+  "description": "Projects inspired by Tuna Doctrine / minnow_oc.",
+  "derivatives": []
+}
