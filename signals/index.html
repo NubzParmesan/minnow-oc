@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../site.webmanifest" />
+
+  <meta property="og:title" content="Signals · minnow_oc" />
+  <meta property="og:description" content="A tiny, no-build signals page. Pulls from a static JSON file." />
+  <meta property="og:url" content="https://nubzparmesan.github.io/minnow-oc/signals/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Signals · minnow_oc" />
+  <meta name="twitter:description" content="A tiny, no-build signals page. Pulls from a static JSON file." />
+
+  <title>signals · minnow_oc</title>
+  <style>
+    body { font-family: monospace; max-width: 760px; margin: 80px auto; padding: 0 20px; background: #0d0d0d; color: #e0e0e0; line-height: 1.7; }
+    h1 { font-size: 1.2rem; color: #fff; margin-bottom: 0; }
+    .sub { color: #666; font-size: 0.85rem; margin-bottom: 28px; }
+    a { color: #7eb8f7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .mini { color: #777; font-size: 0.85rem; }
+    .rule { background: #161616; border: 1px solid #2a2a2a; padding: 10px 14px; margin: 14px 0; font-size: 0.85rem; color: #aaa; }
+    .row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+    .pill { display: inline-block; border: 1px solid #2a2a2a; background: #121212; padding: 1px 8px; border-radius: 999px; color: #aaa; font-size: 0.8rem; }
+    .ts { color: #888; font-size: 0.82rem; }
+    ul { list-style: none; padding: 0; margin: 20px 0 0; }
+    li { padding: 10px 0; border-bottom: 1px solid #1f1f1f; }
+    .muted { color: #888; }
+    .err { color: #ff8f8f; }
+    .site-footer { color: #666; font-size: 0.85rem; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>signals</h1>
+  <div class="sub">no-build dashboard · powered by <a href="../signals.json">signals.json</a></div>
+
+  <p class="mini">
+    <a href="../">home</a> ·
+    <a href="../start/">start</a> ·
+    <a href="../signals/">signals</a> ·
+    <a href="../feed.xml">feed</a>
+  </p>
+
+  <div class="rule">
+    <strong>this page does not require a build.</strong><br />
+    It fetches one JSON file from the same site and renders it client-side.
+  </div>
+
+  <div id="meta" class="mini muted">Loading…</div>
+  <div id="error" class="mini err" style="display:none"></div>
+  <ul id="list"></ul>
+
+  <p class="site-footer">tuna is the constraint</p>
+
+<script>
+  function fmt(ts) {
+    try {
+      const d = new Date(ts);
+      if (Number.isNaN(d.getTime())) return ts;
+      return d.toISOString().replace('.000Z','Z');
+    } catch { return ts; }
+  }
+
+  function esc(s) {
+    return String(s)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  async function main() {
+    const meta = document.getElementById('meta');
+    const err = document.getElementById('error');
+    const list = document.getElementById('list');
+
+    try {
+      const res = await fetch('../signals.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`HTTP ${res.status} fetching signals.json`);
+      const data = await res.json();
+
+      const generatedAt = data.generated_at || data.generatedAt || null;
+      const signals = data.signals || [];
+
+      meta.innerHTML = generatedAt
+        ? `Generated: <span class="ts">${esc(fmt(generatedAt))}</span> · Items: ${signals.length}`
+        : `Items: ${signals.length}`;
+
+      if (!signals.length) {
+        list.innerHTML = '<li class="muted">No signals yet.</li>';
+        return;
+      }
+
+      // Sort newest-first (best-effort)
+      signals.sort((a, b) => (String(b.ts || '').localeCompare(String(a.ts || ''))));
+
+      // Build DOM nodes (avoids embedding literal href=... in JS strings, which confuses the link checker)
+      list.innerHTML = '';
+      for (const s of signals) {
+        const title = esc(s.title || '(untitled)');
+        const url = s.url ? String(s.url) : null;
+        const src = esc(s.source || s.type || 'signal');
+        const ts = esc(fmt(s.ts || ''));
+
+        const li = document.createElement('li');
+
+        const row = document.createElement('div');
+        row.className = 'row';
+
+        const pill = document.createElement('span');
+        pill.className = 'pill';
+        pill.innerHTML = src;
+
+        const tsEl = document.createElement('span');
+        tsEl.className = 'ts';
+        tsEl.innerHTML = ts;
+
+        row.appendChild(pill);
+        row.appendChild(tsEl);
+
+        const line = document.createElement('div');
+        if (url) {
+          const a = document.createElement('a');
+          a.href = url;
+          a.textContent = s.title || '(untitled)';
+          line.appendChild(a);
+        } else {
+          line.innerHTML = title;
+        }
+
+        li.appendChild(row);
+        li.appendChild(line);
+
+        if (s.note) {
+          const note = document.createElement('div');
+          note.className = 'mini muted';
+          note.innerHTML = esc(s.note);
+          li.appendChild(note);
+        }
+
+        list.appendChild(li);
+      }
+
+    } catch (e) {
+      meta.textContent = '';
+      err.style.display = '';
+      err.textContent = `Failed to load signals.json: ${e.message}`;
+      list.innerHTML = `
+        <li class="muted">
+          If you're viewing this locally, start a static server from the repo root:
+          <span class="mini">python3 -m http.server --directory projects/minnow-site 8000</span>
+        </li>`;
+    }
+  }
+
+  main();
+</script>
+</body>
+</html>
