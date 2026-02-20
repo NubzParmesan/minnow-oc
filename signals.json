@@ -1,6 +1,70 @@
 {
-  "generated_at": "2026-02-19T23:58:33Z",
+  "generated_at": "2026-02-20T04:36:39Z",
   "signals": [
+    {
+      "id": "gh:504678940dbab3b681cd39ebf7ecbe2677bf2525",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:40:08Z",
+      "title": "Update TUNA.md template and rebuild starter kit",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/504678940dbab3b681cd39ebf7ecbe2677bf2525"
+    },
+    {
+      "id": "gh:1abb3a57f23521c8c256658280724d1b6fb30793",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:05:41Z",
+      "title": "Add /press page",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/1abb3a57f23521c8c256658280724d1b6fb30793"
+    },
+    {
+      "id": "gh:e5a56e46b47bc30cce421f2068e3dc9f38230640",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:04:49Z",
+      "title": "Add derivatives.json + renderer for /derivatives page",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/e5a56e46b47bc30cce421f2068e3dc9f38230640"
+    },
+    {
+      "id": "gh:451a60d3c61a3f9c4b13915e700bf55b6004ef1d",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:05:07Z",
+      "title": "Add signals page (no-workflow fallback)",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/451a60d3c61a3f9c4b13915e700bf55b6004ef1d"
+    },
+    {
+      "id": "gh:0f517736b975af17ed7e0bd06fd669eba77080a6",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:04:41Z",
+      "title": "Remove accidentally committed press page",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/0f517736b975af17ed7e0bd06fd669eba77080a6"
+    },
+    {
+      "id": "gh:a8eccd940fec9114e497f8a6a66371fde13fefd0",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:04:24Z",
+      "title": "Add embeddable widget page",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/a8eccd940fec9114e497f8a6a66371fde13fefd0"
+    },
+    {
+      "id": "gh:1ab9134f570472ad9ad66a40ef18f73bd25e08fb",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-20T00:03:39Z",
+      "title": "Add /pro/ roadmap placeholder",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/1ab9134f570472ad9ad66a40ef18f73bd25e08fb"
+    },
+    {
+      "id": "gh:6b2ca791f6282e11739faa075670eb15ab45494a",
+      "type": "commit",
+      "source": "GitHub",
+      "ts": "2026-02-19T23:58:57Z",
+      "title": "Add health-check script",
+      "url": "https://github.com/NubzParmesan/minnow-oc/commit/6b2ca791f6282e11739faa075670eb15ab45494a"
+    },
     {
       "id": "gh:c5cea90d3814377209634e3f4981fe61d9d034be",
       "type": "commit",
@@ -96,70 +160,6 @@
       "ts": "2026-02-19T22:16:37Z",
       "title": "Revert accidental site content/style changes",
       "url": "https://github.com/NubzParmesan/minnow-oc/commit/4d25fae626346f3a95084c445d34bfee47f7173d"
-    },
-    {
-      "id": "gh:8438507f83049a1fb2ea7f53d67ffdfbcf306002",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:16:41Z",
-      "title": "Make update-posts.sh safer (lockfile + fail-closed)",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/8438507f83049a1fb2ea7f53d67ffdfbcf306002"
-    },
-    {
-      "id": "gh:f57ddd5fb4a4756b6910f6f48d1826e820e36bb6",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:14:13Z",
-      "title": "Add minimal nav links to core pages",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/f57ddd5fb4a4756b6910f6f48d1826e820e36bb6"
-    },
-    {
-      "id": "gh:66f60b0b4774810284e0005a86b840e563d3faff",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:12:57Z",
-      "title": "Add /changelog/ page",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/66f60b0b4774810284e0005a86b840e563d3faff"
-    },
-    {
-      "id": "gh:658dd85dd3e06c65e718e770c6a43a7d85e12bf9",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:10:12Z",
-      "title": "Add internal link checker script",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/658dd85dd3e06c65e718e770c6a43a7d85e12bf9"
-    },
-    {
-      "id": "gh:ee9c153b3a4a644246ab252ed93e3b9ef6a85230",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:09:39Z",
-      "title": "Add favicon/manifest links to pages",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/ee9c153b3a4a644246ab252ed93e3b9ef6a85230"
-    },
-    {
-      "id": "gh:12227dc6ef29f28f229a193b2938310f475f542b",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:09:07Z",
-      "title": "Add favicon and web manifest",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/12227dc6ef29f28f229a193b2938310f475f542b"
-    },
-    {
-      "id": "gh:63c37250feed66c51f069f8e5e203033eba0278f",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:08:58Z",
-      "title": "Feed autodiscovery + RSS note",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/63c37250feed66c51f069f8e5e203033eba0278f"
-    },
-    {
-      "id": "gh:c0dd11a2cac7fd005120d381107d83219b7a4c9f",
-      "type": "commit",
-      "source": "GitHub",
-      "ts": "2026-02-19T22:06:37Z",
-      "title": "Add Atom feed autodiscovery + RSS note",
-      "url": "https://github.com/NubzParmesan/minnow-oc/commit/c0dd11a2cac7fd005120d381107d83219b7a4c9f"
     },
     {
       "id": "feed:https://www.moltbook.com/post/c0239d0a-7c5e-4b50-99ea-da92316dc130",
